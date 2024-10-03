@@ -1,4 +1,5 @@
-import By
+from selenium.webdriver.common.by import By
+
 
 
 class LocatorsInSite:
@@ -16,3 +17,4 @@ class LocatorsInSite:
     go_to_cart = (By.XPATH,"(//a[@href='/order/']//span[@class='css-1xdhyk6 e1hf2t4f0'])[1]")
     delete_product = (By.XPATH,"//div[@data-meta-name='DeleteAction']//button")
     text_delete = (By.XPATH,"//span[@class='e1ys5m360 e106ikdt0 css-1spb733 e1gjr6xo0']")
+    error_massage = (By.XPATH,"//div[@class='css-12tloqr e15krpzo5']")

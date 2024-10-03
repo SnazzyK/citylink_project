@@ -1,5 +1,8 @@
 import time
-from main_locators import LocatorsInSite
+
+from selenium.common import TimeoutException
+
+from Pages.main_locators import LocatorsInSite
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from Pages.base_page import  BasePage
@@ -15,11 +18,32 @@ class AuthorizeInSite(BasePage):
         search_field_email.send_keys(email)
         search_field_pass = self.find_element(LocatorsInSite.locator_pass_input)
         search_field_pass.send_keys(password)
-        search_field_button = self.find_element(LocatorsInSite.locator_button_authorize)
-        search_field_button.click()
+        try:
+            search_field_button = self.find_element(LocatorsInSite.locator_button_authorize)
+            if search_field_button.is_displayed():
+                 search_field_button.click()
+            else: print("Элемент невидим")
+        except TimeoutException:
+            print("Кнопка не доступна.")
+
+
+
+
+
+
+
+
+
+    def authorization_confirmation(self):
         search_field_name = self.find_element(LocatorsInSite.locator_name_account)
         element_text = search_field_name.text
         assert element_text == "Валерий"
+
+    def сonfirmation_of_authorization_error(self):
+        search_error_name = self.find_element_visible(LocatorsInSite.error_massage,time=30)
+        error_name_text = search_error_name.text
+        assert error_name_text == 'Поле должно содержать не менее 6 символов'
+
 
     def cart(self,name):
         search_button_catalog = self.find_element(LocatorsInSite.locator_product_catalog)
