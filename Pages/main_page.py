@@ -1,26 +1,10 @@
 import time
-
+from main_locators import LocatorsInSite
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from Pages.base_page import  BasePage
 from conftest import browser
 
-
-class LocatorsInSite:
-    locator_authorize = (By.XPATH,'//span[@class="ekyeari0 e106ikdt0 css-1y9ljh1 e1gjr6xo0"]')
-    locator_email_input = (By.XPATH,'//input[@name= "login"]')
-    locator_pass_input = (By.XPATH,'//input[@name= "pass"]')
-    locator_button_authorize = (By.XPATH,'//button[@class = "e4uhfkv0 css-1nvnwij e4mggex0"]')
-    locator_name_account = (By.XPATH,"//span[@class= 'en3k2720 e106ikdt0 css-1y9ljh1 e1gjr6xo0']")
-
-    locator_product_catalog = (By.XPATH,"//input[@type='search']")
-    locator_search = (By.XPATH,"//button[@class='css-c064wa ebli37a0']")
-    locator_in_product = (By.XPATH,"//div[@class='app-catalog-shrvo4 e1ekfd3u0']//a[@title='Смартфон INFINIX Note 30 8/256Gb,  X6833B,  голубой']")
-    locator_add_cart = (By.XPATH,"//button[@class='e11w80q30 e4uhfkv0 app-catalog-zkoen2 e4mggex0']")
-    text_product = (By.XPATH,"//span[@class='e1ys5m360 e106ikdt0 css-p2oaao e1gjr6xo0']")
-    go_to_cart = (By.XPATH,"(//a[@href='/order/']//span[@class='css-1xdhyk6 e1hf2t4f0'])[1]")
-    delete_product = (By.XPATH,"//*[@id='__next']/div/main/div[1]/div[2]/section/div[1]/div[2]/div/div/div[5]/div/div[4]/div/div/button")
-    text_delete = (By.XPATH,"//span[@class='e1ys5m360 e106ikdt0 css-1spb733 e1gjr6xo0']")
 
 class AuthorizeInSite(BasePage):
 
