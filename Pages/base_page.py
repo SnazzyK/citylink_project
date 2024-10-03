@@ -5,9 +5,9 @@ from conftest import browser
 
 class BasePage():
 
-    def __init__(self, driver):
+    def __init__(self, driver,main_url=None):
         self.driver = driver
-        self.base_url = "https://www.citilink.ru"
+
 
     def find_element(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.element_to_be_clickable(locator),
@@ -16,8 +16,9 @@ class BasePage():
         return WebDriverWait(self.driver, time).until(EC.visibility_of_element_located(locator),
                                                           message=f"Can't find element by locator {locator}")
 
-    def go_to_site(self):
-        return self.driver.get(self.base_url)
+    def open(self,main_url):
+        self.main_url = "https://www.citilink.ru"
+        return self.main_url
 
 
 
