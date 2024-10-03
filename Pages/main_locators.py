@@ -18,3 +18,4 @@ class LocatorsInSite:
     delete_product = (By.XPATH,"//div[@data-meta-name='DeleteAction']//button")
     text_delete = (By.XPATH,"//span[@class='e1ys5m360 e106ikdt0 css-1spb733 e1gjr6xo0']")
     error_massage = (By.XPATH,"//div[@class='css-12tloqr e15krpzo5']")
+    error_massage_after = (By.XPATH,"//div[@class='LoginPageLayout__error-message']")

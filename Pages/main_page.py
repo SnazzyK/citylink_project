@@ -44,6 +44,12 @@ class AuthorizeInSite(BasePage):
         error_name_text = search_error_name.text
         assert error_name_text == 'Поле должно содержать не менее 6 символов'
 
+    def сonfirmation_of_authorization_error_after(self):
+        search_error_name = self.find_element_visible(LocatorsInSite.error_massage_after, time=30)
+        error_name_text = search_error_name.text
+        assert error_name_text == 'Неверный логин или пароль'
+
+
 
     def cart(self,name):
         search_button_catalog = self.find_element(LocatorsInSite.locator_product_catalog)
