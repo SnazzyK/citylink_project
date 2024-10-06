@@ -28,12 +28,6 @@ class AuthorizeInSite(BasePage):
 
 
 
-
-
-
-
-
-
     def authorization_confirmation(self):
         search_field_name = self.find_element(LocatorsInSite.locator_name_account)
         element_text = search_field_name.text
@@ -51,17 +45,21 @@ class AuthorizeInSite(BasePage):
 
 
 
-    def cart(self,name):
+    def search_input_field(self,name):
         search_button_catalog = self.find_element(LocatorsInSite.locator_product_catalog)
         search_button_catalog.send_keys(name)
         search_button_catalog.send_keys(Keys.ENTER)
+
+    def search_product_and_add_in_card(self):
         search_product_button = self.find_element(LocatorsInSite.locator_in_product)
         search_product_button.click()
-        search_product_button = self.find_element(LocatorsInSite.locator_add_cart)
-        search_product_button.click()
+        search_add_cart_button = self.find_element(LocatorsInSite.locator_add_cart)
+        search_add_cart_button.click()
         search_text = self.find_element(LocatorsInSite.text_product)
         product_text = search_text.text
         assert product_text == "Товар добавлен в корзину"
+
+    def delete_product(self):
         search_cart_button =self.find_element(LocatorsInSite.go_to_cart)
         search_cart_button.click()
         search_delete_button = self.find_element(LocatorsInSite.delete_product)
